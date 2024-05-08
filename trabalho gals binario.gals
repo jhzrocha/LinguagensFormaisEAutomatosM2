@@ -1,0 +1,44 @@
+#Options
+GenerateScanner = true
+GenerateParser = true
+Language = Java
+ScannerName = Lexico
+ParserName = Sintatico
+SemanticName = Semantico
+Package = gals
+ScannerCaseSensitive = true
+ScannerTable = Full
+Input = String
+Parser = SLR
+#RegularDefinitions
+
+#Tokens
+:[\n\t\r\s]+
+show:show
+variavel: [A-Za-z]*
+numeros: [0-1]+
+soma: \+
+subtracao: \-
+multiplicacao: \*
+divisao: "/"
+exponenciacao: "^"
+igual: "="
+abrirPar:"("
+fechaPar:")"
+fim:";"
+inicioLog:"Math.log("
+
+#NonTerminals
+<lista_comandos>
+<comando>
+<prior1>
+<prior2>
+<prior3>
+<prior4>
+#Grammar
+<lista_comandos> ::=  <lista_comandos><comando> | <comando>;
+<comando> ::= variavel #10 igual <prior4> fim #9 | show abrirPar <prior4> fechaPar fim #8 | <prior4>;
+<prior4> ::= <prior4> soma <prior3> #2| <prior4> subtracao <prior3> #5 | <prior3>; 
+<prior3> ::= <prior3> multiplicacao <prior2> #3| <prior3> divisao <prior2> #6 | <prior2>;
+<prior2> ::= <prior1> exponenciacao <prior1> #7 |  inicioLog <prior1> fechaPar #14 | <prior1>;
+<prior1> ::= abrirPar <prior4> fechaPar |  numeros #1 | variavel #4;
