@@ -6,6 +6,11 @@ import java.util.Stack;
 
 public class Semantico implements Constants
 {
+    public static int log2(int N){
+        int result = (int)(Math.log(N)/Math.log(2));
+        return result;
+    }
+    
     Stack<Integer> stack = new Stack();
     Map<String, Integer> vars = new HashMap<String, Integer>();
     String variavelAtual;
@@ -57,9 +62,10 @@ public class Semantico implements Constants
               break;
             case 14:
               b = stack.pop();  
-              Double B = Math.log10(b);
-              stack.push(B.intValue());
+              int B = log2(b);
+              stack.push(B);
               break;
+
       }
     }
 }
