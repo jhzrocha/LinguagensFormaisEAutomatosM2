@@ -3,11 +3,11 @@ package Principal;
 import gals.*;
 import java.io.IOException;
 public class Main {
-     public static void main(String[] args) throws IOException{
-         
+    
+    public static void main(String[] args) throws IOException{
          try
          {
-            Lexico lexico = new Lexico("A=(100+11*11)^11;B = 10; C = Math.log(B); show(C);");
+            Lexico lexico = new Lexico("A=101101; B = 101; C = 1101; D = Math.log(A*((C/B)^B)); show(D);");
             
             Sintatico sintatico = new Sintatico();
             Semantico semantico = new Semantico();
@@ -18,5 +18,5 @@ public class Main {
             {
                 System.out.println("Comando não identificado.");
             }
-  }
+    }
 }
