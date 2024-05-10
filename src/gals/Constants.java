@@ -18,4 +18,5 @@ public interface Constants extends ScannerConstants, ParserConstants
     int t_fechaPar = 12;
     int t_fim = 13;
     int t_log = 14;
+
 }
