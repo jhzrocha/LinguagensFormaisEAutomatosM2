@@ -57,10 +57,10 @@ public interface ScannerConstants
         "",
         "",
         "",
-        "Erro identificando inicioLog",
-        "Erro identificando inicioLog",
-        "Erro identificando inicioLog",
-        "Erro identificando inicioLog",
+        "Erro identificando log",
+        "Erro identificando log",
+        "Erro identificando log",
+        "Erro identificando log",
         ""
     };
 
